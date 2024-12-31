@@ -63,7 +63,7 @@ export const productsData: Record<string, ProductDetails> = {
       "Fitur: Padat, Cair, Bubuk",
       "Berat : 2.8kg",
       "Dimensi : (D) 260 x (W) 190 x (H) 200 mm",
-      "Aksesoris : Pinset, Termometer, Berat Kalibrasi 200g, Sudut Baja, Adaptor AC, Mudah terhubung ke PC dengan perlengkapan standar RS232C, Kaca Depan Kedap Udara",
+      "Aksesoris : Pinset, Termometer, Berat Kalibrasi 200g, Sudut Baja, Adaptor AC, Mudah terhubung ke PC dengan perlengkapan standar RSk232C, Kaca Depan Kedap Udara",
     ],
   },
   "Elektronik Densimeter MDS-3000": {
