@@ -1,9 +1,7 @@
 import AboutUs from "../components/landingPage/AboutUsSection";
 import ContactUs from "../components/landingPage/ContactUsSection";
 import HeroSection from "../components/landingPage/HeroSection";
-import HowToOrder from "../components/landingPage/HowToOrderSection";
 import Products from "../components/landingPage/ProductsSection";
-import Testimonial from "../components/landingPage/TestimonialSection";
 
 export default function Landing() {
   return (
@@ -12,8 +10,8 @@ export default function Landing() {
       <AboutUs />
       {/* <WhyUs /> */}
       <Products />
-      <HowToOrder />
-      <Testimonial />
+      {/* <HowToOrder />
+      <Testimonial /> */}
       <ContactUs />
     </article>
   );
