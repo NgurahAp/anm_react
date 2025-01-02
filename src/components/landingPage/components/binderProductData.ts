@@ -1,4 +1,4 @@
-export interface memmertProduct {
+export interface binderProduct {
   id: number;
   title: string;
   color: string;
@@ -10,11 +10,11 @@ export interface memmertProduct {
   padding?: string | null;
 }
 
-export const memmertProducts: memmertProduct[] = [
+export const binderProducts: binderProduct[] = [
   {
     id: 1,
     title: "UN 30",
-    color: "green",
+    color: "red",
     description:
       "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
     image: "/landing/memert/un30.png",
@@ -26,7 +26,7 @@ export const memmertProducts: memmertProduct[] = [
   {
     id: 2,
     title: "UN 55",
-    color: "green",
+    color: "red",
     description:
       "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
     image: "/landing/memert/un55.png",
@@ -38,7 +38,7 @@ export const memmertProducts: memmertProduct[] = [
   {
     id: 3,
     title: "UN 110",
-    color: "green",
+    color: "red",
     description:
       "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
     image: "/landing/memert/un110.png",
@@ -50,7 +50,7 @@ export const memmertProducts: memmertProduct[] = [
   {
     id: 4,
     title: "UN 160",
-    color: "green",
+    color: "red",
     description:
       "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
     image: "/landing/memert/un160.png",
@@ -62,7 +62,7 @@ export const memmertProducts: memmertProduct[] = [
   {
     id: 5,
     title: "UF 55",
-    color: "green",
+    color: "red",
     description:
       "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
     image: "/landing/memert/uf55.png",

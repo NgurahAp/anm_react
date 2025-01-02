@@ -1,67 +1,42 @@
 import { Link } from "react-router-dom";
-import { memmertProduct } from "../productData";
-import { ArrowRight } from "lucide-react";
+import { memmertProduct } from "./memmertProductData";
 
 interface ProductCardProps {
   product: memmertProduct;
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
-  // Helper function untuk menentukan warna border dan button
-  const getColorClasses = (color: string) => {
-    const colorMap = {
-      green: {
-        border: "hover:border-green-500",
-        button: "bg-green-600 hover:bg-green-700",
-      },
-      red: {
-        border: "hover:border-red-500",
-        button: "bg-red-600 hover:bg-red-700",
-      },
-    };
-
-    return (
-      colorMap[color as keyof typeof colorMap] || {
-        border: "hover:border-gray-500",
-        button: "bg-gray-600 hover:bg-gray-700",
-      }
-    );
-  };
-
-  const colorClasses = getColorClasses(product.color);
-
   return (
-    <div
-      className={`group bg-white rounded-xl hover:shadow-2xl border border-gray-100 ${colorClasses.border} overflow-hidden w-80 mx-3 transition-all duration-300 h-full ease-in-out`}
-    >
-      {/* Image Container */}
-      <div className="relative overflow-hidden h-72">
-        {/* Overlay effect on hover */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-all duration-300" />
+    <Link to="" className="flex flex-col group pb-5">
+      {/* Image Container with Overlay */}
+      <div className="relative w-[18rem] h-[20rem] overflow-hidden rounded-md">
+        {/* Background Image */}
+        <div className="w-full h-full bg-[#F6F6F6] flex items-center justify-center">
+          <img
+            src={product.image}
+            alt={product.title}
+            className="w-11/12 object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
 
-        <img
-          src={product.image}
-          alt={product.alt}
-          className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-300"
-        />
+        {/* Logo */}
+        <div className="absolute -top-2 left-3 w-16 h-16 bg-transparent rounded-full p-2 ">
+          <img
+            src="/landing/memert/logo.png"
+            alt="Memmert Logo"
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        {/* Gradient Overlay and Title */}
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 to-transparent">
+          <h3 className="absolute bottom-4 left-6 text-white text-lg font-semibold font-urbanist">
+            {product.title}
+          </h3>
+        </div>
       </div>
-
-      {/* Content Container */}
-      <div className="p-6 flex flex-col items-center space-y-4 bg-gradient-to-b from-white to-gray-50">
-        {/* Title with line clamp for consistency */}
-        <h2 className="text-xl font-bold text-gray-800 text-center line-clamp-2 min-h-[3.5rem]">
-          {product.title}
-        </h2>
-
-        {/* Button with hover effect */}
-        <Link
-          to={product.link}
-          className={`flex items-center justify-center w-full gap-2 ${colorClasses.button} text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 group-hover:shadow-lg`}
-        >
-          <span>Pesan Produk</span>
-          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-        </Link>
-      </div>
-    </div>
+    </Link>
   );
 };
+
+export default ProductCard;
