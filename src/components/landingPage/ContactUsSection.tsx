@@ -1,100 +1,151 @@
+import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+
 const ContactUs = () => {
   return (
     <section
       id="contactUs"
-      className="min-h-[80vh] bg-gray-100 py-6 px-5 md:px-36"
+      className="bg-gradient-to-b from-gray-50 to-gray-100 py-16"
     >
-      <div className="flex flex-col md:flex-row w-full h-full gap-8">
-        {/* Left Section */}
-        <div className="w-full md:w-1/3 bg-white p-5 rounded-lg">
-          <h2 className="font-urbanist text-green-700 font-bold text-lg">
-            Hubungi Kami
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="inline-block px-4 py-1 bg-red-50 text-red-600 text-sm font-semibold rounded-full mb-4">
+            Konsultasi Gratis
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Mari Diskusikan Kebutuhan Laboratorium Anda
           </h2>
-          <h2 className="font-urbanist text-gray-800 py-4 font-extrabold text-3xl">
-            Butuh Konsultasi atau Ingin Memesan?
-          </h2>
-          <p className="text-lg text-gray-500 pb-3">
-            Hubungi kami untuk konsultasi, pemesanan, atau pertanyaan lainnya.
-            Kami berkomitmen memberikan solusi terbaik untuk kebutuhan
-            laboratorium dan kesehatan Anda.
+          <p className="text-gray-600">
+            Tim ahli kami siap membantu Anda menemukan solusi terbaik untuk
+            kebutuhan peralatan laboratorium Anda
           </p>
-
-          {/* Buttons */}
-          <div className="flex flex-col space-y-4 pt-8">
-            <a
-              href="https://wa.me/6281617408900"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center w-full justify-center border border-red-500 rounded-md py-3 text-red-600 space-x-4 hover:text-white transition duration-300 hover:bg-red-500"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-              <span className="font-medium">0816-1740-8900</span>
-            </a>
-
-            <a
-              href="mailto:sales@anm.co.id"
-              className="flex items-center w-full justify-center border border-red-500 rounded-md py-3 text-red-600 space-x-4 hover:text-white transition duration-300 hover:bg-red-500"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-              <span className="font-medium">sales@anm.co.id</span>
-            </a>
-          </div>
         </div>
 
-        {/* Right Section */}
-        <div className="w-full md:w-2/3 bg-white rounded-lg p-5 md:p-10">
-          <h2 className="font-urbanist text-gray-800 font-extrabold text-3xl md:text-5xl">
-            Dapatkan Penawaran Spesial Sekarang!
-          </h2>
-          <form className="space-y-4 pt-7">
-            <input
-              type="text"
-              placeholder="Name"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-            />
-            <textarea
-              placeholder="Message"
-              rows={5}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-            ></textarea>
-            <button
-              type="submit"
-              className="w-full bg-red-500 text-white font-semibold py-2 rounded-md hover:bg-red-600 transition duration-300"
-            >
-              Send
-            </button>
-          </form>
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Left Section */}
+          <div className="w-full lg:w-1/3  space-y-8">
+            {/* Contact Info Card */}
+            <div className="bg-white rounded-xl shadow-sm p-8 h-[32rem]">
+              <h3 className="text-xl font-bold text-gray-900 mb-6">
+                Informasi Kontak
+              </h3>
+
+              <div className="space-y-6">
+                {/* Contact Methods */}
+                <a
+                  href="https://wa.me/6281617408900"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-red-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Telepon/WhatsApp</p>
+                    <p className="font-semibold text-gray-900">
+                      0816-1740-8900
+                    </p>
+                  </div>
+                </a>
+
+                <a
+                  href="mailto:sales@anm.co.id"
+                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-red-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Email</p>
+                    <p className="font-semibold text-gray-900">
+                      sales@anm.co.id
+                    </p>
+                  </div>
+                </a>
+
+                <div className="flex items-center gap-4 p-4 rounded-lg">
+                  <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-red-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Lokasi</p>
+                    <p className="font-semibold text-gray-900">
+                      Jakarta, Indonesia
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 p-4 rounded-lg">
+                  <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
+                    <Clock className="w-6 h-6 text-red-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Jam Kerja</p>
+                    <p className="font-semibold text-gray-900">
+                      Senin - Jumat: 08:00 - 17:00
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Section - Contact Form */}
+          <div className="w-full lg:w-2/3">
+            <div className="bg-white rounded-xl shadow-sm p-8 h-[32rem]">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Dapatkan Penawaran Khusus
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Isi form di bawah dan tim kami akan menghubungi Anda segera
+              </p>
+
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Nama Lengkap
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                      placeholder="Masukkan nama lengkap"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                      placeholder="Masukkan email"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Pesan
+                  </label>
+                  <textarea
+                    rows={5}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                    placeholder="Jelaskan kebutuhan Anda"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                >
+                  <Send className="w-5 h-5" />
+                  Kirim Pesan
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { memmertProduct } from "./memmertProductData";
 
-interface ProductCardProps {
+interface MemmertProductCardProps {
   product: memmertProduct;
 }
 
-export const ProductCard = ({ product }: ProductCardProps) => {
+export const MemmertProductCard = ({ product }: MemmertProductCardProps) => {
   return (
     <Link to="" className="flex flex-col group pb-5">
       {/* Image Container with Overlay */}
@@ -36,7 +36,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         </div>
       </div>
     </Link>
-  );
+  );  
 };
 
-export default ProductCard;
+export default MemmertProductCard;
