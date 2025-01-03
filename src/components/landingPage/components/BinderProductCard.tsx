@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
-import { binderProduct } from "./binderProductData";
 import { ArrowRight } from "lucide-react";
+import { BinderProduct } from "./binderProductData";
 
 interface BinderProductCardProps {
-  product: binderProduct;
+  product: BinderProduct;
 }
 
 export const BinderProductCard = ({ product }: BinderProductCardProps) => {
   return (
-    <Link to={`/product/${product.id}`} className="group relative">
+    <Link
+      to={`/binderDetail/${encodeURIComponent(product.slug)}`}
+      className="group relative"
+    >
       <div className="flex flex-col bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
         {/* Image Container */}
         <div className="relative w-72 h-80">
