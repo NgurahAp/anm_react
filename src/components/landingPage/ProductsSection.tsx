@@ -110,7 +110,7 @@ const Products = () => {
           <div className="flex items-center justify-between mb-6">
             <div className="pr-3">
               <h3 className="text-base md:text-xl font-bold text-gray-900">
-                Memmert Premium Series
+                MEMMERT PREMIUM SERIES
               </h3>
               <p className="text-gray-600 text-xs md:text-sm mt-1">
                 Presisi tinggi untuk hasil yang sempurna
@@ -175,7 +175,7 @@ const Products = () => {
           <div className="flex items-center justify-between mb-6">
             <div className="pr-3">
               <h3 className="text-base md:text-xl font-bold text-gray-900">
-                BINDER Professional Series
+                BINDER PROFESSIONAL SERIES
               </h3>
               <p className="text-gray-600 text-xs md:text-sm mt-1">
                 Inovasi teknologi untuk standar tertinggi

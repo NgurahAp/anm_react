@@ -12,45 +12,65 @@ export const ProductImageGallery = ({
   title: string;
 }) => {
   const [selectedImage, setSelectedImage] = useState(image);
-
-  // Create array of available images
   const thumbnails = [image, image2].concat(image3 ? [image3] : []);
 
   return (
-    <div className="space-y-4 items-center justify-center flex flex-col">
-      {/* Main Image */}
-      <div className="w-9/12 flex items-center justify-center aspect-square bg-white rounded-lg overflow-hidden shadow-lg">
-        <img src={selectedImage} alt={title} className="w-10/12" />
-        {/* Logo */}
-        <div className="absolute top-0 left-24 w-24 h-24 bg-white rounded-full p-2">
-          <img
-            src="/landing/binder/logo.png"
-            alt="Binder Logo"
-            className="w-full h-full object-contain"
-          />
-        </div>
-      </div>
-
-      {/* Thumbnails */}
-      <div className="flex gap-2">
-        {thumbnails.map((img, index) => (
-          <button
-            key={index}
-            onClick={() => setSelectedImage(img)}
-            className={`w-24 h-24 rounded-lg overflow-hidden border-2 transition-all ${
-              selectedImage === img
-                ? "border-red-500 shadow-md"
-                : "border-transparent hover:border-gray-300"
-            }`}
-          >
+    <div className="max-w-4xl mx-auto p-6">
+      <div className="space-y-6">
+        {/* Main Image Container */}
+        <div className="relative w-full bg-white rounded-2xl shadow-xl overflow-hidden">
+          {/* Image Wrapper with aspect ratio */}
+          <div className="relative aspect-square">
             <img
-              src={img}
-              alt={`${title} view ${index + 1}`}
-              className="w-full h-full object-cover"
+              src={selectedImage}
+              alt={title}
+              className="absolute inset-0 w-full h-full object-contain p-8 transition-all duration-300 hover:scale-105"
             />
-          </button>
-        ))}
+
+            {/* Logo Badge */}
+            <div className="absolute top-6 left-6 w-20 h-20 md:w-24 md:h-24 bg-white rounded-full shadow-lg p-3 hover:rotate-0 transition-transform duration-300">
+              <img
+                src="/landing/binder/logo.png"
+                alt="Binder Logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Thumbnails Gallery */}
+        <div className="flex justify-center gap-4">
+          {thumbnails.map((img, index) => (
+            <button
+              key={index}
+              onClick={() => setSelectedImage(img)}
+              className={`group relative rounded-xl overflow-hidden transition-all duration-300
+                ${
+                  selectedImage === img
+                    ? "ring-2 ring-red-500 ring-offset-2 shadow-lg transform scale-105"
+                    : "hover:ring-2 hover:ring-gray-300 hover:ring-offset-2 hover:shadow-md"
+                }`}
+            >
+              <div className="aspect-square w-20 md:w-24">
+                <img
+                  src={img}
+                  alt={`${title} view ${index + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+
+              {/* Active Indicator */}
+              {selectedImage === img && (
+                <div className="absolute inset-0 bg-black bg-opacity-10 pointer-events-none">
+                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-red-500 rounded-full"></div>
+                </div>
+              )}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
+
+export default ProductImageGallery;

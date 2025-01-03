@@ -1,6 +1,7 @@
 import { useParams, Navigate } from "react-router-dom";
 import { binderProducts } from "../../../components/landingPage/components/binderProductData";
 import { ProductImageGallery } from "./components/ProductImageGalerry";
+import ProductCharacteristics from "./components/ProductCharacteristics";
 
 // Helper function to normalize strings for comparison
 const normalizeString = (str: string): string => {
@@ -42,7 +43,7 @@ export const Binder = () => {
   }
 
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-gray-100">
+    <section className="bg-gradient-to-b from-white to-gray-50">
       <div className="min-h-screen px-5 md:px-10 pt-14 md:pt-32 pb-10">
         <div className="max-w-7xl mx-auto ">
           <div className="flex flex-col-reverse md:flex-row gap-8 pb-20">
@@ -108,24 +109,7 @@ export const Binder = () => {
             </div>
           </div>
 
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-800 mt-20 text-center">
-              IMPORTANT CHARACTERISTICS
-            </h2>
-            {product.characteristics && (
-              <div className="grid grid-cols-1 md:grid-cols-3   justify-center gap-16 mt-10 px-28 pt-10">
-                {product.characteristics.map((char, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-start space-y-2"
-                  >
-                    <div className="w-10 h-1 bg-red-600 "></div>
-                    <p className="font-semibold">{char}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          <ProductCharacteristics characteristics={product.characteristics} />
         </div>
       </div>
     </section>
