@@ -44,9 +44,9 @@ export const Binder = () => {
 
   return (
     <section className="bg-gradient-to-b from-white to-gray-50">
-      <div className="min-h-screen px-5 md:px-10 pt-14 md:pt-32 pb-10">
+      <div className="min-h-screen px-5 md:px-10 pt-28 md:pt-32 pb-10">
         <div className="max-w-7xl mx-auto ">
-          <div className="flex flex-col-reverse md:flex-row gap-8 pb-20">
+          <div className="flex flex-col md:flex-row gap-8 md:pb-20">
             {/* Product Images */}
             <div className="w-full md:w-1/2 md:pl-20">
               <div className="sticky top-24">
@@ -63,19 +63,19 @@ export const Binder = () => {
 
             {/* Product Details */}
             <div className="flex-1">
-              <h1 className="text-4xl font-extrabold text-gray-800 mb-6">
+              <h1 className="text-2xl md:text-4xl font-extrabold text-gray-800 mb-6">
                 {product.title}
               </h1>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-sm md:text-lg text-gray-600 mb-8 leading-relaxed">
                 {product.description}
               </p>
 
               {/* Benefits Section */}
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                <h2 className="text-lg md:text-2xl font-bold text-gray-800 mb-4">
                   Keunggulan
                 </h2>
-                <ul className="list-disc pl-5 space-y-2">
+                <ul className="list-disc pl-5 md:text-base text-xs space-y-2">
                   <li className="text-gray-700">
                     Desain ergonomis dan mudah dibawa
                   </li>
@@ -91,21 +91,7 @@ export const Binder = () => {
                 </ul>
               </div>
 
-              {/* Action Button */}
-              <div className="flex flex-col md:flex-row gap-4">
-                <a
-                  href="/order/binder-produk-a"
-                  className="px-6 py-3 bg-red-600 text-white rounded-lg shadow-md hover:bg-red-600 text-center"
-                >
-                  Pesan Sekarang
-                </a>
-                <a
-                  href="/products"
-                  className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg shadow-md hover:bg-gray-300 text-center"
-                >
-                  Lihat Produk Lainnya
-                </a>
-              </div>
+              
             </div>
           </div>
 

@@ -15,7 +15,7 @@ export const ProductImageGallery = ({
   const thumbnails = [image, image2].concat(image3 ? [image3] : []);
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="max-w-4xl mx-auto md:p-6">
       <div className="space-y-6">
         {/* Main Image Container */}
         <div className="relative w-full bg-white rounded-2xl shadow-xl overflow-hidden">
