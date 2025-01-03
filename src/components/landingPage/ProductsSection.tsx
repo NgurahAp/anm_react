@@ -108,16 +108,16 @@ const Products = () => {
         {/* Memmert Section */}
         <div className="mb-16">
           <div className="flex items-center justify-between mb-6">
-            <div>
-              <h3 className="text-xl font-bold text-gray-900">
+            <div className="pr-3">
+              <h3 className="text-base md:text-xl font-bold text-gray-900">
                 Memmert Premium Series
               </h3>
-              <p className="text-gray-600 text-sm mt-1">
+              <p className="text-gray-600 text-xs md:text-sm mt-1">
                 Presisi tinggi untuk hasil yang sempurna
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <h1 className="text-sm">Jelajahi Semua</h1>
+              <h1 className="text-sm hidden md:block">Jelajahi Semua</h1>
               <div className="flex gap-2">
                 <button
                   onClick={() => scroll("left", memmertContainerRef)}
@@ -173,16 +173,16 @@ const Products = () => {
         {/* Binder Section */}
         <div>
           <div className="flex items-center justify-between mb-6">
-            <div>
-              <h3 className="text-xl font-bold text-gray-900">
+            <div className="pr-3">
+              <h3 className="text-base md:text-xl font-bold text-gray-900">
                 BINDER Professional Series
               </h3>
-              <p className="text-gray-600 text-sm mt-1">
+              <p className="text-gray-600 text-xs md:text-sm mt-1">
                 Inovasi teknologi untuk standar tertinggi
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <h1 className="text-sm">Jelajahi Semua</h1>
+              <h1 className="text-sm hidden md:block">Jelajahi Semua</h1>
               <div className="flex gap-2">
                 <button
                   onClick={() => scroll("left", binderContainerRef)}

@@ -22,7 +22,7 @@ export const BinderProductCard = ({ product }: BinderProductCardProps) => {
           </div>
 
           {/* Logo */}
-          <div className="absolute top-3 left-3 w-16 h-16 bg-white rounded-full p-2 shadow-md transform -translate-y-1/4 transition-transform group-hover:-translate-y-1/3">
+          <div className="absolute top-8 left-5 w-16 h-16 bg-white rounded-full p-2 shadow-md transform -translate-y-1/4 transition-transform group-hover:-translate-y-1/3">
             <img
               src="/landing/binder/logo.png"
               alt="Binder Logo"

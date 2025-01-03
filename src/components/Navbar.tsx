@@ -12,9 +12,8 @@ const Navbar = () => {
 
   const menuItems = [
     { to: "/", label: "Home" },
-    { to: "#whyUs", label: "Why Us?" },
+    { to: "#aboutUs", label: "About Us" },
     { to: "#products", label: "Best Product" },
-    { to: "#howToOrder", label: "How to Order" },
     { to: "#contactUs", label: "Contact Us" },
   ];
 
@@ -98,7 +97,7 @@ const Navbar = () => {
           ))}
           <div className="pt-2 pb-1">
             <a
-              href="#"
+              href="#contactUs"
               onClick={closeMenu}
               className="block w-full text-center text-red-500 border-2 border-red-500 px-6 py-3 rounded-md text-base font-semibold hover:bg-red-500 hover:text-white transition-all duration-300"
             >

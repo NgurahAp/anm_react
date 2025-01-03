@@ -25,7 +25,7 @@ const ContactUs = () => {
           {/* Left Section */}
           <div className="w-full lg:w-1/3  space-y-8">
             {/* Contact Info Card */}
-            <div className="bg-white rounded-xl shadow-sm p-8 h-[32rem]">
+            <div className="bg-white rounded-xl shadow-sm p-8 min-h-[32rem]">
               <h3 className="text-xl font-bold text-gray-900 mb-6">
                 Informasi Kontak
               </h3>
@@ -93,7 +93,7 @@ const ContactUs = () => {
 
           {/* Right Section - Contact Form */}
           <div className="w-full lg:w-2/3">
-            <div className="bg-white rounded-xl shadow-sm p-8 h-[32rem]">
+            <div className="bg-white rounded-xl shadow-sm p-8 min-h-[32rem]">
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 Dapatkan Penawaran Khusus
               </h3>
