@@ -6,77 +6,147 @@ export interface BinderProduct {
   description: string;
   image: string;
   image2: string;
+  image3?: string;
   alt: string;
   link: string;
   padding?: string | null;
+  characteristics?: string[];
 }
 
 export const binderProducts: BinderProduct[] = [
   {
     id: 1,
-    title: "Model ED 23 | Drying and heating chambers with gravity convection",
+    title:
+      "Model ED 23 | Ruang Pengeringan dan Pemanasan dengan Konveksi Gravitasi",
     slug: "model ed 23",
-    color: "red",
+    color: "merah",
     description:
-      "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
+      "Kekuatan dari ruang pengeringan BINDER seri ED termasuk tugas pengeringan dan sterilisasi rutin hingga 300 °C. Berkat konveksi gravitasi, semua proses termal yang menggunakan ruang pengering ini sangat efisien. Seri ED memastikan pengeringan yang cepat dan merata.",
     image: "/landing/binder/ed23.jpg",
-    image2: "/landing/binder/un30-2.webp",
-    alt: "Memmert oven UN 30",
+    image2: "/landing/binder/ed23-2.jpg",
+    alt: "Model ED 23 | Ruang Pengeringan dan Pemanasan dengan Konveksi Gravitasi",
     link: `/binderDetail/model%20ed%2023`,
     padding: "mt-[0.2rem]",
+    characteristics: [
+      "Rentang suhu: suhu ruang ditambah 5 °C hingga 300 °C",
+      "Teknologi ruang pemanasan APT.line™",
+      "Konveksi gravitasi",
+      "Flap udara buang yang dapat disesuaikan",
+      "Pengontrol dengan fungsi timer",
+      "2 rak krom-plated",
+      "Perangkat keselamatan suhu independen kelas 2 yang dapat disesuaikan (DIN 12880) dengan alarm visual",
+    ],
   },
   {
     id: 2,
-    title: "Model ED 115 | Drying and heating chambers with gravity convection",
+    title:
+      "Model ED 115 | Ruang Pengeringan dan Pemanasan dengan Konveksi Gravitasi",
     slug: "model ed 115",
-    color: "red",
+    color: "merah",
     description:
-      "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
+      "Kekuatan dari ruang pengeringan BINDER seri ED termasuk tugas pengeringan dan sterilisasi rutin hingga +300 °C. Berkat konveksi alami, semua proses termal yang menggunakan ruang pengering ini sangat efisien. Seri ED memastikan pengeringan yang cepat dan merata.",
     image: "/landing/binder/ed115.jpg",
-    image2: "/landing/binder/ed115.jpg",
-    alt: "Memmert oven UN 55",
+    image2: "/landing/binder/ed115-2.jpg",
+    image3: "/landing/binder/ed115-3.jpg",
+    alt: "Model ED 115 | Ruang Pengeringan dan Pemanasan dengan Konveksi Gravitasi",
     link: `/binderDetail/model%20ed%20115`,
     padding: "mt-[0.2rem]",
+    characteristics: [
+      "Rentang suhu: suhu ruang ditambah 5 °C hingga 300 °C",
+      "Akurasi suhu tinggi berkat teknologi APT.line™",
+      "Konveksi gravitasi",
+      "Pengontrol dengan tampilan LCD",
+      "Kontrol elektromekanis untuk flap udara buang",
+      "2 rak krom-plated",
+      "Dapat ditumpuk",
+      "Perangkat keselamatan suhu independen kelas 2 yang dapat disesuaikan (DIN 12880) dengan alarm visual",
+      "Desain pegangan ergonomis",
+      "Port USB untuk merekam data",
+    ],
   },
   {
     id: 3,
-    title: "Model ED 260 | Drying and heating chambers with gravity convection",
+    title:
+      "Model ED 260 | Ruang Pengeringan dan Pemanasan dengan Konveksi Gravitasi",
     slug: "model ed 260",
-    color: "red",
+    color: "merah",
     description:
-      "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
+      "Kekuatan dari ruang pengeringan BINDER seri ED termasuk tugas pengeringan dan sterilisasi rutin hingga +300 °C. Berkat konveksi alami, semua proses termal yang menggunakan ruang pengering ini sangat efisien. Seri ED memastikan pengeringan yang cepat dan merata.",
     image: "/landing/binder/ed260.jpg",
-    image2: "/landing/binder/un110-2.webp",
-    alt: "Memmert oven UN 110",
+    image2: "/landing/binder/ed260-2.jpg",
+    image3: "/landing/binder/ed260-3.jpg",
+    alt: "Model ED 260 | Ruang Pengeringan dan Pemanasan dengan Konveksi Gravitasi",
     link: `/binderDetail/model%20ed%20260`,
     padding: "mt-[0.2rem]",
+    characteristics: [
+      "Rentang suhu: suhu ruang ditambah 5 °C hingga 300 °C",
+      "Akurasi suhu tinggi berkat teknologi APT.line™",
+      "Konveksi gravitasi",
+      "Pengontrol dengan tampilan LCD",
+      "Kontrol elektromekanis untuk flap udara buang",
+      "2 rak krom-plated",
+      "Perangkat keselamatan suhu independen kelas 2 yang dapat disesuaikan (DIN 12880) dengan alarm visual",
+      "Desain pegangan ergonomis",
+      "Port USB untuk merekam data",
+    ],
   },
   {
     id: 4,
     title:
-      "Model FED 56 | Drying and heating chambers with forced convection and enhanced timer functions",
+      "Model FED 56 | Ruang Pengeringan dan Pemanasan dengan Konveksi Paksa dan Fungsi Timer yang Ditingkatkan",
     slug: "model fed 56",
-    color: "red",
+    color: "merah",
     description:
-      "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
+      "Ruang pemanasan BINDER seri FED Avantgarde.Line menyediakan kapasitas hampir tak terbatas dan sangat adaptif. Dengan fungsi timer canggih dan kipas yang dapat dikendalikan, kondisi suhu dan konveksi dapat dengan mudah dikendalikan.",
     image: "/landing/binder/fed56.jpg",
-    image2: "/landing/binder/un160-2.webp",
-    alt: "Memmert oven UN 160",
+    image2: "/landing/binder/fed56-2.jpg",
+    image3: "/landing/binder/fed56-3.jpg",
+    alt: "Model FED 56 | Ruang Pengeringan dan Pemanasan dengan Konveksi Paksa dan Fungsi Timer yang Ditingkatkan",
     link: `/binderDetail/model%20fed%2056`,
     padding: "mt-[0.2rem]",
+    characteristics: [
+      "Rentang suhu: suhu ruang ditambah 5 °C hingga 300 °C",
+      "Hingga 30% penghematan energi dibandingkan dengan unit konvensional di pasar",
+      "Akurasi suhu tinggi berkat teknologi APT.line™",
+      "Kecepatan kipas yang dapat disesuaikan",
+      "Pengontrol dengan tampilan LCD dan fungsi waktu yang ditingkatkan",
+      "Kontrol elektromekanis untuk flap udara buang",
+      "2 rak krom-plated",
+      "Unit hingga 115 liter dapat ditumpuk",
+      "Perangkat keselamatan suhu independen kelas 2 yang dapat disesuaikan (DIN 12880) dengan alarm visual",
+      "Desain pegangan ergonomis",
+      "Antarmuka Ethernet",
+      "Port USB untuk merekam data",
+    ],
   },
   {
     id: 5,
     title:
-      "Model FED 115 | Drying and heating chambers with forced convection and enhanced timer functions",
+      "Model FED 115 | Ruang Pengeringan dan Pemanasan dengan Konveksi Paksa dan Fungsi Timer yang Ditingkatkan",
     slug: "model fed 115",
-    color: "red",
+    color: "merah",
     description:
-      "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
+      "Ruang pemanasan BINDER seri FED Avantgarde.Line menyediakan kapasitas hampir tak terbatas dan sangat adaptif. Dengan fungsi timer canggih dan kipas yang dapat dikendalikan, kondisi suhu dan konveksi dapat dengan mudah dikendalikan.",
     image: "/landing/binder/fed115.jpg",
-    image2: "/landing/binder/uf55-2.webp",
-    alt: "Memmert oven UF 55",
+    image2: "/landing/binder/fed115-2.jpg",
+    image3: "/landing/binder/fed115-3.jpg",
+    alt: "Model FED 115 | Ruang Pengeringan dan Pemanasan dengan Konveksi Paksa dan Fungsi Timer yang Ditingkatkan",
     link: `/binderDetail/model%20fed%20115`,
     padding: "mt-[0.2rem]",
+    characteristics: [
+      "Rentang suhu: suhu ruang ditambah 5 °C hingga 300 °C",
+      "Hingga 30% penghematan energi dibandingkan dengan unit konvensional di pasar",
+      "Akurasi suhu tinggi berkat teknologi APT.line™",
+      "Kecepatan kipas yang dapat disesuaikan",
+      "Pengontrol dengan tampilan LCD dan fungsi waktu yang ditingkatkan",
+      "Kontrol elektromekanis untuk flap udara buang",
+      "2 rak krom-plated",
+      "Unit hingga 115 liter dapat ditumpuk",
+      "Perangkat keselamatan suhu independen kelas 2 yang dapat disesuaikan (DIN 12880) dengan alarm visual",
+      "Desain pegangan ergonomis",
+      "Antarmuka Ethernet",
+      "Port USB untuk merekam data",
+    ],
   },
 ];
+
