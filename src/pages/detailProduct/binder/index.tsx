@@ -76,18 +76,11 @@ export const Binder = () => {
                   Keunggulan
                 </h2>
                 <ul className="list-disc pl-5 md:text-base text-xs space-y-2">
-                  <li className="text-gray-700">
-                    Desain ergonomis dan mudah dibawa
-                  </li>
-                  <li className="text-gray-700">
-                    Material tahan lama dan ramah lingkungan
-                  </li>
-                  <li className="text-gray-700">
-                    Cocok untuk kebutuhan profesional dan personal
-                  </li>
-                  <li className="text-gray-700">
-                    Mendukung produktivitas Anda dengan fitur tambahan
-                  </li>
+                  {product.benefits.map((benefit, index) => (
+                    <li key={index} className="text-gray-700">
+                      {benefit}
+                    </li>
+                  ))}
                 </ul>
               </div>
 

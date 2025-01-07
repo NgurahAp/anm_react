@@ -11,7 +11,7 @@ const ProductCharacteristics: React.FC<ProductCharacteristicsProps> = ({
   if (!characteristics || characteristics.length === 0) return null;
 
   return (
-    <section className=" py-0 md:py-16 md:px-4">
+    <section className=" py-0 md:py-10 md:px-4">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
         {/* Characteristics Section */}
         <div className="w-full md:w-1/2">
