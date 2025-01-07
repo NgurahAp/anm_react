@@ -26,7 +26,7 @@ const ProductNotFound = () => (
   </div>
 );
 
-export const Binder = () => {
+export const BinderDetail = () => {
   const { slug } = useParams<{ slug: string }>();
 
   if (!slug) {
@@ -83,8 +83,6 @@ export const Binder = () => {
                   ))}
                 </ul>
               </div>
-
-              
             </div>
           </div>
 

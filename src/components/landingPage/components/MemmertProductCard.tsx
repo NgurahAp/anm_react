@@ -7,7 +7,7 @@ interface MemmertProductCardProps {
 
 export const MemmertProductCard = ({ product }: MemmertProductCardProps) => {
   return (
-    <Link to="" className="flex flex-col group pb-5">
+    <Link to={`/memmertDetail/${product.slug}`} className="flex flex-col group pb-5">
       {/* Image Container with Overlay */}
       <div className="relative w-[18rem] h-[20rem] overflow-hidden rounded-md">
         {/* Background Image */}

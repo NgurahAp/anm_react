@@ -1,6 +1,7 @@
 export interface memmertProduct {
   id: number;
   title: string;
+  slug: string;
   color: string;
   description: string;
   image: string;
@@ -14,6 +15,7 @@ export const memmertProducts: memmertProduct[] = [
   {
     id: 1,
     title: "Model UN 30",
+    slug: "model un 30",
     color: "green",
     description:
       "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
@@ -26,6 +28,8 @@ export const memmertProducts: memmertProduct[] = [
   {
     id: 2,
     title: "Model UN 55",
+    slug: "model un 55",
+
     color: "green",
     description:
       "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
@@ -38,6 +42,7 @@ export const memmertProducts: memmertProduct[] = [
   {
     id: 3,
     title: "Model UN 110",
+    slug: "model un 110",
     color: "green",
     description:
       "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
@@ -50,6 +55,8 @@ export const memmertProducts: memmertProduct[] = [
   {
     id: 4,
     title: "Model UN 160",
+    slug: "model un 160",
+
     color: "green",
     description:
       "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
@@ -62,6 +69,8 @@ export const memmertProducts: memmertProduct[] = [
   {
     id: 5,
     title: "Model UF 55",
+    slug: "model uf 55",
+
     color: "green",
     description:
       "Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.Precise drying, heating, ageing, burn-in and hardening in research, science, industry and quality assurance.",
