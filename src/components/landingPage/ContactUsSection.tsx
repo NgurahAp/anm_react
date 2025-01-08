@@ -1,13 +1,68 @@
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { useState, ChangeEvent, FormEvent } from "react";
 
-const ContactUs = () => {
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+const ContactUs = (): JSX.Element => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xeoopwyl", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _replyto: formData.email, // Ini akan mengatur reply-to ke email pengirim
+        }),
+      });
+
+      if (response.ok) {
+        alert("Pesan berhasil dikirim!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error("Gagal mengirim pesan");
+      }
+    } catch (error) {
+      alert("Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
+      console.log(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section
       id="contactUs"
       className="bg-gradient-to-b from-gray-50 to-gray-100 py-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-1 bg-red-50 text-red-600 text-sm font-semibold rounded-full mb-4">
             Konsultasi Gratis
@@ -22,16 +77,13 @@ const ContactUs = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left Section */}
-          <div className="w-full lg:w-1/3  space-y-8">
-            {/* Contact Info Card */}
+          <div className="w-full lg:w-1/3 space-y-8">
             <div className="bg-white rounded-xl shadow-sm p-8 min-h-[32rem]">
               <h3 className="text-xl font-bold text-gray-900 mb-6">
                 Informasi Kontak
               </h3>
 
               <div className="space-y-6">
-                {/* Contact Methods */}
                 <a
                   href="https://wa.me/6281617408900"
                   target="_blank"
@@ -50,7 +102,7 @@ const ContactUs = () => {
                 </a>
 
                 <a
-                  href="mailto:sales@anm.co.id"
+                  href="mailto:19210200@bsi.ac.id"
                   className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
                 >
                   <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
@@ -59,7 +111,7 @@ const ContactUs = () => {
                   <div>
                     <p className="text-sm text-gray-600">Email</p>
                     <p className="font-semibold text-gray-900">
-                      sales@anm.co.id
+                      19210200@bsi.ac.id
                     </p>
                   </div>
                 </a>
@@ -91,7 +143,6 @@ const ContactUs = () => {
             </div>
           </div>
 
-          {/* Right Section - Contact Form */}
           <div className="w-full lg:w-2/3">
             <div className="bg-white rounded-xl shadow-sm p-8 min-h-[32rem]">
               <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -101,47 +152,75 @@ const ContactUs = () => {
                 Isi form di bawah dan tim kami akan menghubungi Anda segera
               </p>
 
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Nama Lengkap
                     </label>
                     <input
+                      id="name"
                       type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                       placeholder="Masukkan nama lengkap"
+                      required
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Email
                     </label>
                     <input
+                      id="email"
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                       placeholder="Masukkan email"
+                      required
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Pesan
                   </label>
                   <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     rows={5}
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                     placeholder="Jelaskan kebutuhan Anda"
+                    required
+                    disabled={isSubmitting}
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                  className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:bg-gray-400"
+                  disabled={isSubmitting}
                 >
                   <Send className="w-5 h-5" />
-                  Kirim Pesan
+                  {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
                 </button>
               </form>
             </div>
