@@ -2,12 +2,9 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L, { LatLngExpression } from "leaflet";
 
-// Fix untuk marker icon
-const defaultIcon = L.icon({
+const redMarker = L.icon({
   iconUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-  iconRetinaUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
   shadowUrl:
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
   iconSize: [25, 41],
@@ -16,8 +13,34 @@ const defaultIcon = L.icon({
   shadowSize: [41, 41],
 });
 
-// Set default icon untuk semua marker
-L.Marker.prototype.options.icon = defaultIcon;
+// Custom style untuk popup dengan keterbacaan yang lebih baik
+const customPopupStyle = `
+  .custom-popup .leaflet-popup-content-wrapper {
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 2px;
+  }
+  .custom-popup .leaflet-popup-content {
+    margin: 8px 12px;
+    font-family: 'Urbanist', sans-serif;
+    min-width: 200px;
+  }
+  .custom-popup .company-name {
+    font-weight: 600;
+    color: #000000;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .custom-popup .address {
+    color: #000000;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .leaflet-popup-tip {
+    background: #FFFFFF;
+  }
+`;
 
 const Footer = () => {
   // Definisikan posisi dengan type yang benar
@@ -157,20 +180,27 @@ const Footer = () => {
           </div>
           {/* Container untuk map dengan fixed height */}
           <div className="h-[190px] w-full pt-3">
+            <style>{customPopupStyle}</style>
             <MapContainer
               center={position}
               zoom={16}
               scrollWheelZoom={false}
-              className="h-full w-full"
+              className="h-full w-full rounded-lg"
+              attributionControl={false}
+              zoomControl={true} // Menampilkan zoom control untuk navigasi yang lebih baik
             >
               <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" // Kembali ke OpenStreetMap standar untuk keterbacaan yang lebih baik
+                maxZoom={19}
               />
-              <Marker position={position}>
-                <Popup>
-                  PT. Anugrah Niaga Mandiri
-                  <br />
-                  Jl. Radin Inten II No. 61A Duren Sawit
+              <Marker position={position} icon={redMarker}>
+                <Popup className="custom-popup">
+                  <div className="company-name">PT. Anugrah Niaga Mandiri</div>
+                  <div className="address">
+                    Jl. Radin Inten II No. 61A
+                    <br />
+                    Duren Sawit, Jakarta Timur
+                  </div>
                 </Popup>
               </Marker>
             </MapContainer>
