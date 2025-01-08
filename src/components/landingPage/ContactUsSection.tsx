@@ -30,20 +30,22 @@ const ContactUs = (): JSX.Element => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://formspree.io/f/xeoopwyl", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
+          access_key: "0b5e8e6e-13e8-4ea7-82bd-6556a17f760d", // Ganti dengan API key dari Web3Forms
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          _replyto: formData.email, // Ini akan mengatur reply-to ke email pengirim
         }),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+      if (result.success) {
         alert("Pesan berhasil dikirim!");
         setFormData({ name: "", email: "", message: "" });
       } else {
