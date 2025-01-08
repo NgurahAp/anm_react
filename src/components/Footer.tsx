@@ -1,4 +1,28 @@
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L, { LatLngExpression } from "leaflet";
+
+// Fix untuk marker icon
+const defaultIcon = L.icon({
+  iconUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+  iconRetinaUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+  shadowUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
+
+// Set default icon untuk semua marker
+L.Marker.prototype.options.icon = defaultIcon;
+
 const Footer = () => {
+  // Definisikan posisi dengan type yang benar
+  const position: LatLngExpression = [-6.2341214507513305, 106.92265149402358]; // Koordinat Duren Sawit
+
   return (
     <footer className="min-h-[60vh] bg-[#333333] py-8 md:py-14 px-4 md:px-16">
       <div className="flex flex-col md:flex-row">
@@ -68,7 +92,7 @@ const Footer = () => {
           </h1>
           <p className="text-slate-300 font-light pt-3">http://www.anm.co.id</p>
         </div>
-        <div className="md:pl-20 pt-6">
+        <div className="md:pl-20 pt-0 w-96">
           <h1 className="font-urbanist font-medium text-xl text-white">
             Media Sosial
           </h1>
@@ -131,6 +155,26 @@ const Footer = () => {
               </div>
             </div>
           </div>
+          {/* Container untuk map dengan fixed height */}
+          <div className="h-[190px] w-full pt-3">
+            <MapContainer
+              center={position}
+              zoom={16}
+              scrollWheelZoom={false}
+              className="h-full w-full"
+            >
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={position}>
+                <Popup>
+                  PT. Anugrah Niaga Mandiri
+                  <br />
+                  Jl. Radin Inten II No. 61A Duren Sawit
+                </Popup>
+              </Marker>
+            </MapContainer>
+          </div>
         </div>
       </div>
       <div className="w-full h-[1px] mt-4 bg-slate-300 hover:bg-green-500 transition-all duration-300"></div>
@@ -139,7 +183,6 @@ const Footer = () => {
           <a href="https://anm.co.id" className="text-blue-500 hover:underline">
             PT. Anugrah Niaga Mandiri
           </a>
-      
         </p>
       </div>
     </footer>
