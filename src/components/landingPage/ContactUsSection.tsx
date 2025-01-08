@@ -37,7 +37,7 @@ const ContactUs = (): JSX.Element => {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "0b5e8e6e-13e8-4ea7-82bd-6556a17f760d", // Ganti dengan API key dari Web3Forms
+          access_key: "d2dd95c6-76e7-41ad-80c6-be82c50996b7", // Ganti dengan API key dari Web3Forms
           name: formData.name,
           email: formData.email,
           message: formData.message,
