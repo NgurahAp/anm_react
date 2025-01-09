@@ -113,7 +113,7 @@ const ContactUs = (): JSX.Element => {
                   <div>
                     <p className="text-sm text-gray-600">Email</p>
                     <p className="font-semibold text-gray-900">
-                      19210200@bsi.ac.id
+                      sales@anm.co.id
                     </p>
                   </div>
                 </a>
@@ -125,7 +125,7 @@ const ContactUs = (): JSX.Element => {
                   <div>
                     <p className="text-sm text-gray-600">Lokasi</p>
                     <p className="font-semibold text-gray-900">
-                      Jakarta, Indonesia
+                      Duren Sawit, Jakarta Timur
                     </p>
                   </div>
                 </div>

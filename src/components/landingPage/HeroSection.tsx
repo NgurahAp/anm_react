@@ -29,7 +29,7 @@ const HeroSection = () => {
             Distributor Resmi Oven
           </h1>
           <span className="block text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-green-700 to-green-500 bg-clip-text text-transparent">
-            Memmert & Binder Indonesia
+            MEMMERT & BINDER INDONESIA
           </span>
         </div>
 

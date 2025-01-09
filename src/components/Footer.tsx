@@ -52,7 +52,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="md:pl-28 pt-6 md:pt-0 w-[28rem]">
+        <div className="md:pl-28 pt-6 md:pt-0 md:w-[28rem]">
           <h1 className="font-urbanist font-medium text-lg text-white">
             Alamat Kantor
           </h1>
@@ -61,7 +61,7 @@ const Footer = () => {
           </p>
           <MapComponent />
         </div>
-        <div className="md:pl-20 pt-0 ">
+        <div className="md:pl-20 pt-6 md:pt-0 ">
           <h1 className="font-urbanist font-medium text-lg text-white">
             Email
           </h1>

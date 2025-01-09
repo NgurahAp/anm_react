@@ -26,7 +26,7 @@ const AboutUs = () => {
           {/* Content Section */}
           <div className="w-full md:w-1/2 flex flex-col justify-center space-y-6 p-6 md:pr-20 md:pl-32">
             <h1 className="text-3xl md:text-5xl font-bold text-gray-900 text-center md:text-left">
-              Oven Laboratorium
+              OVEN LABORATORIUM
             </h1>
 
             <p className="text-sm md:text-base text-gray-700 leading-relaxed text-center md:text-left">
