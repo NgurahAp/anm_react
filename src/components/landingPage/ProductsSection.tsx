@@ -4,6 +4,7 @@ import { MemmertProductCard } from "./components/MemmertProductCard";
 import { memmertProducts } from "./components/memmertProductData";
 import BinderProductCard from "./components/BinderProductCard";
 import { binderProducts } from "./components/binderProductData";
+import { motion } from "framer-motion";
 
 const Products = () => {
   // State untuk scroll buttons untuk masing-masing section
@@ -93,16 +94,34 @@ const Products = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center space-y-4 mb-16">
-          <span className="inline-block px-4 py-1 bg-green-50 text-green-700 text-lg font-semibold rounded-full">
+          <motion.span
+            className="inline-block px-4 py-1 bg-green-50 text-green-700 text-lg font-semibold rounded-full"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             Solusi Laboratorium Terpercaya
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 max-w-3xl mx-auto leading-tight">
+          </motion.span>
+          <motion.h2
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 max-w-3xl mx-auto leading-tight"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             Peralatan Premium untuk Laboratorium Modern
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p
+            className="text-gray-600 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             Temukan rangkaian produk berkualitas tinggi untuk mendukung
             keakuratan dan efisiensi penelitian Anda
-          </p>
+          </motion.p>
         </div>
 
         {/* Memmert Section */}

@@ -1,7 +1,19 @@
+import { motion } from "framer-motion";
+
 const AboutUs = () => {
   return (
-    <section
+    <motion.section
       id="aboutUs"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        duration: 0.8,
+        ease: "easeOut",
+      }}
+      viewport={{ once: true, amount: 0.2 }}
       className="relative py-20 flex items-center overflow-hidden"
     >
       {/* Background Image */}
@@ -27,7 +39,20 @@ const AboutUs = () => {
       <div className="container mx-auto relative z-10 px-4 md:px-6 max-w-7xl">
         <div className="w-full flex justify-center md:justify-end">
           {/* Content Section */}
-          <div className="w-full md:w-1/2 flex flex-col justify-center space-y-6 p-6 md:pr-20 md:pl-32">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.4,
+              ease: "easeOut",
+            }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="w-full md:w-1/2 flex flex-col justify-center space-y-6 p-6 md:pr-20 md:pl-32"
+          >
             <h1 className="text-3xl md:text-5xl font-bold text-gray-900 text-center md:text-left">
               OVEN LABORATORIUM
             </h1>
@@ -37,10 +62,10 @@ const AboutUs = () => {
               memanaskan, mengeringkan, atau mensterilkan berbagai jenis sampel
               atau peralatan.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
