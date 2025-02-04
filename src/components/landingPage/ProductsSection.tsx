@@ -109,7 +109,7 @@ const Products = () => {
         <div className="mb-16">
           <div className="flex items-center justify-between mb-6">
             <div className="pr-3">
-              <h3 className="text-base md:text-xl font-bold text-gray-900">
+              <h3 className="text-base md:text-2xl font-bold text-gray-900">
                 MEMMERT PREMIUM SERIES
               </h3>
               <p className="text-gray-600 text-xs md:text-sm mt-1">
@@ -174,7 +174,7 @@ const Products = () => {
         <div>
           <div className="flex items-center justify-between mb-6">
             <div className="pr-3">
-              <h3 className="text-base md:text-xl font-bold text-gray-900">
+              <h3 className="text-base md:text-2xl font-bold text-gray-900">
                 BINDER PROFESSIONAL SERIES
               </h3>
               <p className="text-gray-600 text-xs md:text-sm mt-1">
