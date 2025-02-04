@@ -81,7 +81,7 @@ export const MemmertDetail = () => {
         </section>
 
         {/* Specifications */}
-        <section className="space-y-8">
+        <section className="space-y-8 mb-8">
           <h3 className="text-2xl font-bold text-gray-900 text-center mb-12">
             Technical Specifications
           </h3>

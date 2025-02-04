@@ -31,7 +31,7 @@ const HeroSection = () => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="bg-gradient-to-br from-white to-gray-50 py-24 px-3 md:px-20 flex items-center relative overflow-hidden max-w-7xl mx-auto"
+      className="bg-gradient-to-br from-white to-gray-50 py-20 px-3 md:px-20 flex items-center relative overflow-hidden max-w-7xl mx-auto"
     >
       {/* Decorative Elements */}
       <div className="absolute inset-0 bg-grid-gray-100/50 -z-10" />
