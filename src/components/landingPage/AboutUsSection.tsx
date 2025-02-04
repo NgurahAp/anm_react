@@ -1,6 +1,9 @@
 const AboutUs = () => {
   return (
-    <section id="aboutUs" className="relative min-h-[70vh] flex items-center overflow-hidden">
+    <section
+      id="aboutUs"
+      className="relative py-20 flex items-center overflow-hidden"
+    >
       {/* Background Image */}
       <div
         className="absolute inset-0 w-full bg-cover bg-center"
@@ -21,7 +24,7 @@ const AboutUs = () => {
       <div className="absolute inset-0 bg-white bg-opacity-85 md:hidden"></div>
 
       {/* Content Container */}
-      <div className="container mx-auto relative z-10 px-4 md:px-6">
+      <div className="container mx-auto relative z-10 px-4 md:px-6 max-w-7xl">
         <div className="w-full flex justify-center md:justify-end">
           {/* Content Section */}
           <div className="w-full md:w-1/2 flex flex-col justify-center space-y-6 p-6 md:pr-20 md:pl-32">

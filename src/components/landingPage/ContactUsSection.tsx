@@ -1,13 +1,13 @@
+import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { useState, ChangeEvent, FormEvent } from "react";
-
 interface FormData {
   name: string;
   email: string;
   message: string;
 }
 
-const ContactUs = (): JSX.Element => {
+export const ContactUs = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -62,10 +62,15 @@ const ContactUs = (): JSX.Element => {
   return (
     <section
       id="contactUs"
-      className="bg-gradient-to-b from-gray-50 to-gray-100 py-16"
+      className="bg-gradient-to-b from-gray-50 to-gray-100 pb-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.8 }}
+        >
           <span className="inline-block px-4 py-1 bg-red-50 text-red-600 text-sm font-semibold rounded-full mb-4">
             Konsultasi Gratis
           </span>
@@ -76,10 +81,16 @@ const ContactUs = (): JSX.Element => {
             Tim ahli kami siap membantu Anda menemukan solusi terbaik untuk
             kebutuhan peralatan laboratorium Anda
           </p>
-        </div>
+        </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="w-full lg:w-1/3 space-y-8">
+          <motion.div
+            className="w-full lg:w-1/3 space-y-8"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
             <div className="bg-white rounded-xl shadow-sm p-8 min-h-[32rem]">
               <h3 className="text-xl font-bold text-gray-900 mb-6">
                 Informasi Kontak
@@ -143,9 +154,15 @@ const ContactUs = (): JSX.Element => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="w-full lg:w-2/3">
+          <motion.div
+            className="w-full lg:w-2/3"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
             <div className="bg-white rounded-xl shadow-sm p-8 min-h-[32rem]">
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 Dapatkan Penawaran Khusus
@@ -219,18 +236,15 @@ const ContactUs = (): JSX.Element => {
                 <button
                   type="submit"
                   className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:bg-gray-400"
-                  disabled={isSubmitting}
                 >
                   <Send className="w-5 h-5" />
                   {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
                 </button>
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 };
-
-export default ContactUs;

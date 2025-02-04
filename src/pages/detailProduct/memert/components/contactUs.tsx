@@ -1,68 +1,250 @@
+import { motion } from "framer-motion";
+import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { useState, ChangeEvent, FormEvent } from "react";
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 export const ContactUs = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "d2dd95c6-76e7-41ad-80c6-be82c50996b7", // Ganti dengan API key dari Web3Forms
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        alert("Pesan berhasil dikirim!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error("Gagal mengirim pesan");
+      }
+    } catch (error) {
+      alert("Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
+      console.log(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="w-full flex justify-center ">
-      <div className="w-full  bg-white p-8 rounded-2xl shadow-xl mt-12 mb-8 relative overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-red-500 opacity-10 rounded-full transform translate-x-16 -translate-y-16"></div>
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-red-500 opacity-10 rounded-full transform -translate-x-12 translate-y-12"></div>
-
-        <div className="relative z-10">
-          <h2 className="text-center font-urbanist text-3xl md:text-4xl font-bold text-gray-800 mb-3">
-            Hubungi Kami
+    <section
+      id="contactUs"
+      className="bg-gradient-to-b from-gray-50 to-gray-100 pb-16"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.8 }}
+        >
+          <span className="inline-block px-4 py-1 bg-red-50 text-red-600 text-sm font-semibold rounded-full mb-4">
+            Konsultasi Gratis
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Mari Diskusikan Kebutuhan Laboratorium Anda
           </h2>
-          <div className="w-24 h-1 bg-red-500 mx-auto mb-4"></div>
-          <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-            Dapatkan informasi lengkap tentang produk dan penawaran khusus
-            melalui WhatsApp atau Email kami
+          <p className="text-gray-600">
+            Tim ahli kami siap membantu Anda menemukan solusi terbaik untuk
+            kebutuhan peralatan laboratorium Anda
           </p>
+        </motion.div>
 
-          <div className="flex flex-col md:flex-row items-stretch justify-center gap-4 md:gap-6">
-            <a
-              href="https://wa.me/6281617408900"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center px-8 py-4 justify-center bg-white border-2 border-red-500 rounded-xl text-red-600 hover:bg-red-500 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 mr-3 transition-transform group-hover:scale-110"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-              <span className="font-medium">0816-1740-8900</span>
-            </a>
+        <div className="flex flex-col lg:flex-row gap-8">
+          <motion.div
+            className="w-full lg:w-1/3 space-y-8"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            <div className="bg-white rounded-xl shadow-sm p-8 min-h-[32rem]">
+              <h3 className="text-xl font-bold text-gray-900 mb-6">
+                Informasi Kontak
+              </h3>
 
-            <a
-              href="mailto:sales@anm.co.id"
-              className="flex items-center px-8 py-4 justify-center bg-white border-2 border-red-500 rounded-xl text-red-600 hover:bg-red-500 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 mr-3 transition-transform group-hover:scale-110"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-              <span className="font-medium">sales@anm.co.id</span>
-            </a>
-          </div>
+              <div className="space-y-6">
+                <a
+                  href="https://wa.me/6281617408900"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-red-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Telepon/WhatsApp</p>
+                    <p className="font-semibold text-gray-900">
+                      0816-1740-8900
+                    </p>
+                  </div>
+                </a>
+
+                <a
+                  href="mailto:19210200@bsi.ac.id"
+                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-red-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Email</p>
+                    <p className="font-semibold text-gray-900">
+                      sales@anm.co.id
+                    </p>
+                  </div>
+                </a>
+
+                <div className="flex items-center gap-4 p-4 rounded-lg">
+                  <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-red-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Lokasi</p>
+                    <p className="font-semibold text-gray-900">
+                      Duren Sawit, Jakarta Timur
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 p-4 rounded-lg">
+                  <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
+                    <Clock className="w-6 h-6 text-red-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Jam Kerja</p>
+                    <p className="font-semibold text-gray-900">
+                      Senin - Jumat: 08:00 - 17:00
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="w-full lg:w-2/3"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            <div className="bg-white rounded-xl shadow-sm p-8 min-h-[32rem]">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Dapatkan Penawaran Khusus
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Isi form di bawah dan tim kami akan menghubungi Anda segera
+              </p>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Nama Lengkap
+                    </label>
+                    <input
+                      id="name"
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                      placeholder="Masukkan nama lengkap"
+                      required
+                      disabled={isSubmitting}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                      placeholder="Masukkan email"
+                      required
+                      disabled={isSubmitting}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Pesan
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={5}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                    placeholder="Jelaskan kebutuhan Anda"
+                    required
+                    disabled={isSubmitting}
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:bg-gray-400"
+                >
+                  <Send className="w-5 h-5" />
+                  {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
+                </button>
+              </form>
+            </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
-}
+};

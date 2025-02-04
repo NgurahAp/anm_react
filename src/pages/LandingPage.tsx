@@ -1,5 +1,5 @@
 import AboutUs from "../components/landingPage/AboutUsSection";
-import ContactUs from "../components/landingPage/ContactUsSection";
+import { ContactUs } from "../components/landingPage/ContactUsSection";
 import HeroSection from "../components/landingPage/HeroSection";
 import Products from "../components/landingPage/ProductsSection";
 
