@@ -68,19 +68,38 @@ export const ContactUs = () => {
         <motion.div
           className="text-center max-w-3xl mx-auto mb-16"
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2, duration: 0.8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
-          <span className="inline-block px-4 py-1 bg-red-50 text-red-600 text-sm font-semibold rounded-full mb-4">
+          <motion.span
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1 bg-red-50 text-red-600 text-sm font-semibold rounded-full mb-4"
+          >
             Konsultasi Gratis
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+          >
             Mari Diskusikan Kebutuhan Laboratorium Anda
-          </h2>
-          <p className="text-gray-600">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-gray-600"
+          >
             Tim ahli kami siap membantu Anda menemukan solusi terbaik untuk
             kebutuhan peralatan laboratorium Anda
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-8">
